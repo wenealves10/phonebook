@@ -1,7 +1,8 @@
 exports.csurfError = (err, req, res, next) =>{
-    if(err && 'EBADCSRFTOKEN' === err.code){
+    if(err){
         res.render('ERROR');
     }
+    next();
 }
 
 exports.csurfMiddleware = (req, res, next) => {

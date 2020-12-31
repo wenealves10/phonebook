@@ -1,10 +1,50 @@
 <%- include('includes/head.ejs') %> 
+<%- include('includes/navbar.ejs') %> 
 
-    <h1>Hello World full mvc</h1>
-    Nome: <%= users.name %><br>
-    Idade: <%= users.year %><br>
-    Login: <%= users.login != false ? 'Sim' : 'Não' %><br>
-    token: <%= csrfToken %> 
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center text-success">
+                      Phone List
+                </h1>
+                <p class="lead text-center">
+                    your phone book is below.
+                </p>
+                <div class="row">
+                    <div class="col my-3">
+                        <div class="alert alert-success text-center">
+                            Your list has been successfully loaded.
+                        </div>
+                    </div>
+                </div>
+                <div class="responsive-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#ID</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">E-mail</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Action</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>141</td>
+                                <td>Wene Alves</td>
+                                <td>weneplay@gmail.com</td>
+                                <td>(99) 984525464</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
     
     
 <%- include('includes/footer.ejs') %> 

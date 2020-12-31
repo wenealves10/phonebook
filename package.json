@@ -1,7 +1,7 @@
 {
-  "name": "api-mongodb",
+  "name": "phonebook",
   "version": "1.0.0",
-  "description": " Full mvc boilerplate.",
+  "description": "phone book design",
   "main": "server.js",
   "scripts": {
     "start": "nodemon ./src/server.js --ignore public --ignore frontend --ignore node_modules",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wenealves10/mvc-boilerplate.git"
+    "url": "git+https://github.com/wenealves10/phonebook.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wenealves10/mvc-boilerplate/issues"
+    "url": "https://github.com/wenealves10/phonebook/issues"
   },
-  "homepage": "https://github.com/wenealves10/mvc-boilerplate#readme",
+  "homepage": "https://github.com/wenealves10/phonebook#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

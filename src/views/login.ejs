@@ -1,0 +1,71 @@
+<%- include('includes/head.ejs') %> 
+<%- include('includes/navbar.ejs') %> 
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 my-3">
+                <h1 class="text-center text-success">
+                    Register or Login
+                </h1>
+                <p class="lead text-center">
+                    Create your account or, if you already have, log in!
+                </p>
+                <!-- <div class="row">
+                    <div class="col my-3">
+                        <div class="alert alert-success text-center">
+                            Your list has been successfully loaded.
+                        </div>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-lg-6 mb-5">
+                        <h4>Create your account now</h4>
+                        <form action="/login/register" method="POST">
+                            <!-- csrf -->
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <div class="form-group">
+                              <label for="emailCreater">Email address</label>
+                              <input type="email" required name="emailCreater" class="form-control" id="emailCreater" aria-describedby="emailHelp" placeholder="your e-mail">
+                              <small id="emailHelp" class="form-text text-muted">We will never share your email with anyone.</small>
+                            </div>
+                            <div class="form-group">
+                              <label for="passwordCreater">Password</label>
+                              <input type="password" required name="passwordCreater" class="form-control" id="passwordCreater" placeholder="type your password">
+                            </div>
+                            <div class="form-group">
+                                <label for="passwordCreaterRepite">Repeat your password</label>
+                                <input type="password" required class="form-control" id="passwordCreaterRepite" placeholder="password">
+                              </div>
+                            <button type="submit" id="register" class="btn btn-success">Click to create</button>
+                          </form>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4>Login</h4>
+                        <form action="/login/account" method="POST">
+                            <!-- csrf -->
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                            <div class="form-group">
+                              <label for="emailAccount">Email address</label>
+                              <input type="email" required name="emailAccount" class="form-control" id="emailAccount" aria-describedby="emailHelp" placeholder="your e-mail">
+                              <small id="emailHelp" class="form-text text-muted">Enter the email you used to create the account</small>
+                            </div>
+
+                            <div class="form-group">
+                              <label for="passwordAccount">Password</label>
+                              <input type="password" required name="passwordAccount" class="form-control" id="passwordAccount" placeholder="type your password">
+                            </div>
+                            <button type="submit" id="account" class="btn btn-success">Login</button>
+                          </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+    
+    
+<%- include('includes/footer.ejs') %> 

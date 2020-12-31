@@ -1,6 +1,116 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./frontend/class/Register.js":
+/*!************************************!*\
+  !*** ./frontend/class/Register.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ Register
+/* harmony export */ });
+/* harmony import */ var _ValidatePassword__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ValidatePassword */ "./frontend/class/ValidatePassword.js");
+/* harmony import */ var _ValidateEmail__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ValidateEmail */ "./frontend/class/ValidateEmail.js");
+
+
+function Register(Email, Password1, Password2) {
+  // const name = ValidateName(Name);
+  var email = (0,_ValidateEmail__WEBPACK_IMPORTED_MODULE_1__.ValidateEmail)(Email);
+  var password = (0,_ValidatePassword__WEBPACK_IMPORTED_MODULE_0__.ValidatePassword)(Password1, Password2);
+
+  if (email && password) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/***/ }),
+
+/***/ "./frontend/class/ValidateEmail.js":
+/*!*****************************************!*\
+  !*** ./frontend/class/ValidateEmail.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ValidateEmail": () => /* binding */ ValidateEmail,
+/* harmony export */   "ValidateName": () => /* binding */ ValidateName
+/* harmony export */ });
+function ValidateEmail(Email) {
+  var email = document.querySelector(Email).value;
+  var val = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
+
+  if (email != '' && val.test(email)) {
+    return true;
+  } else {
+    window.location.reload();
+    return false;
+  }
+}
+function ValidateName(Name) {
+  var name = document.querySelector(Name).value;
+
+  if (name != '' && name != ' ' && name != undefined && isNaN(name)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/***/ }),
+
+/***/ "./frontend/class/ValidatePassword.js":
+/*!********************************************!*\
+  !*** ./frontend/class/ValidatePassword.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ValidatePassword": () => /* binding */ ValidatePassword,
+/* harmony export */   "ValidateLogin": () => /* binding */ ValidateLogin
+/* harmony export */ });
+function ValidatePassword(password1, password2) {
+  var password = document.querySelector(password1);
+  var passwordConfirm = document.querySelector(password2);
+
+  if (password.value != passwordConfirm.value) {
+    password.value = '';
+    passwordConfirm.value = '';
+    passwordConfirm.style.borderColor = '#f00';
+    return false;
+  } else {
+    if (password.value.length >= 8 && password.value.length <= 16) {
+      passwordConfirm.value = '';
+      passwordConfirm.style.borderColor = '#0f0';
+      return true;
+    } else {
+      password.value = '';
+      passwordConfirm.value = '';
+      passwordConfirm.style.borderColor = '#f00';
+      return false;
+    }
+  }
+}
+function ValidateLogin(password) {
+  var pswd = document.querySelector(password).value;
+
+  if (pswd.length >= 4 && pswd.length <= 16) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/***/ }),
+
 /***/ "./frontend/index.js":
 /*!***************************!*\
   !*** ./frontend/index.js ***!
@@ -14,9 +124,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerator-runtime/runtime.js");
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_css_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/css/styles.css */ "./frontend/assets/css/styles.css");
+/* harmony import */ var _class_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./class/Register */ "./frontend/class/Register.js");
 
 
 
+
+var btnRegister = document.querySelector('#register');
+var forms = document.querySelectorAll('form');
+
+if (forms.length > 0) {
+  if (btnRegister) {
+    btnRegister.addEventListener('click', function (event) {
+      event.preventDefault();
+      var submitRegister = (0,_class_Register__WEBPACK_IMPORTED_MODULE_3__.default)('#emailCreater', '#passwordCreater', '#passwordCreaterRepite');
+
+      if (submitRegister) {
+        forms[0].submit();
+      }
+    });
+  }
+}
 
 /***/ }),
 
@@ -14494,7 +14621,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_cssWithMappingToString_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "*{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}", "",{"version":3,"sources":["webpack://./frontend/assets/css/styles.css"],"names":[],"mappings":"AAAA;IACI,SAAS;IACT,UAAU;IACV,sBAAsB;AAC1B","sourcesContent":["*{\n    margin: 0;\n    padding: 0;\n    box-sizing: border-box;\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "", "",{"version":3,"sources":[],"names":[],"mappings":"","sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

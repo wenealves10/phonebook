@@ -4,6 +4,7 @@ export function ValidateEmail(Email) {
    if(email != '' && val.test(email)){
        return true;
    }else{
+       alert('Email inválido!!');
        window.location.reload();
        return false;
    }

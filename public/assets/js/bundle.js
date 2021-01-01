@@ -1,6 +1,34 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./frontend/class/Login.js":
+/*!*********************************!*\
+  !*** ./frontend/class/Login.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => /* binding */ Login
+/* harmony export */ });
+/* harmony import */ var _ValidateEmail__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ValidateEmail */ "./frontend/class/ValidateEmail.js");
+/* harmony import */ var _ValidatePassword__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ValidatePassword */ "./frontend/class/ValidatePassword.js");
+
+
+function Login(Email, Password) {
+  var email = (0,_ValidateEmail__WEBPACK_IMPORTED_MODULE_0__.ValidateEmail)(Email);
+  var password = (0,_ValidatePassword__WEBPACK_IMPORTED_MODULE_1__.ValidateLogin)(Password);
+
+  if (email && password) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/***/ }),
+
 /***/ "./frontend/class/Register.js":
 /*!************************************!*\
   !*** ./frontend/class/Register.js ***!
@@ -49,6 +77,7 @@ function ValidateEmail(Email) {
   if (email != '' && val.test(email)) {
     return true;
   } else {
+    alert('Email inválido!!');
     window.location.reload();
     return false;
   }
@@ -125,21 +154,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(regenerator_runtime_runtime__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _assets_css_styles_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./assets/css/styles.css */ "./frontend/assets/css/styles.css");
 /* harmony import */ var _class_Register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./class/Register */ "./frontend/class/Register.js");
+/* harmony import */ var _class_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./class/Login */ "./frontend/class/Login.js");
+
 
 
 
 
 var btnRegister = document.querySelector('#register');
-var forms = document.querySelectorAll('form');
+var btnLogin = document.querySelector('#account');
+var formRegister = document.querySelector('#Register');
+var formLogin = document.querySelector('#Login');
 
-if (forms.length > 0) {
+if (formRegister && formLogin) {
   if (btnRegister) {
     btnRegister.addEventListener('click', function (event) {
       event.preventDefault();
       var submitRegister = (0,_class_Register__WEBPACK_IMPORTED_MODULE_3__.default)('#emailCreater', '#passwordCreater', '#passwordCreaterRepite');
 
       if (submitRegister) {
-        forms[0].submit();
+        formRegister.submit();
+      }
+    });
+  }
+
+  if (btnLogin) {
+    btnLogin.addEventListener('click', function (event) {
+      event.preventDefault();
+      var submitLogin = (0,_class_Login__WEBPACK_IMPORTED_MODULE_4__.default)('#emailAccount', '#passwordAccount');
+
+      if (submitLogin) {
+        formLogin.submit();
       }
     });
   }

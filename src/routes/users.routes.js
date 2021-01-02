@@ -5,8 +5,4 @@ const indexControllers = require('../controllers/indexControllers');
 
 // routes users
 routes.get('/',indexControllers.index);
-
-
-
-
 module.exports = routes;

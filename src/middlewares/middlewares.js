@@ -15,8 +15,11 @@ exports.csurfMiddleware = (req, res, next) => {
 
 exports.auth = (req, res, next) =>{
     if(!req.session.user){
-        req.flash('errors','somente usuários conta pode acessar!!');
-        return res.redirect('/login');
+        req.flash('errors','Somente usuários com conta podem acessar!!');
+        req.session.save(() =>{
+          res.redirect('/login');
+        });
+        return;        
     }else{
         next();
     }

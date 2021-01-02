@@ -62,11 +62,13 @@ app.use(csrf());
 app.use(csurfMiddleware);
 
 // routes 
-const routesUsers = require('../routes/users.routes');
+const routesHome = require('../routes/home.routes');
 const routesLoginAccount = require('../routes/account.login.routes');
+const routesContacts = require('../routes/contacts.routes');
 
-app.use(routesUsers);
+app.use(routesHome);
 app.use(routesLoginAccount);
+app.use(routesContacts);
 
 module.exports = {
     app,

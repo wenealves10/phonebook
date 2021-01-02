@@ -12,13 +12,7 @@
                 <p class="lead text-center">
                     Create your account or, if you already have, log in!
                 </p>
-                <!-- <div class="row">
-                    <div class="col my-3">
-                        <div class="alert alert-success text-center">
-                            Your list has been successfully loaded.
-                        </div>
-                    </div>
-                </div> -->
+                <%- include('includes/messages.ejs') %> 
                 <div class="row">
                     <div class="col-lg-6 mb-5">
                         <h4>Create your account now</h4>
@@ -35,8 +29,8 @@
                               <input type="password" required name="passwordCreater" class="form-control" id="passwordCreater" placeholder="type your password">
                             </div>
                             <div class="form-group">
-                                <label for="passwordCreaterRepite">Repeat your password</label>
-                                <input type="password" name="passwordCreaterRepite" required class="form-control" id="passwordCreaterRepite" placeholder="password">
+                                <label for="passwordCreaterRepeat">Repeat your password</label>
+                                <input type="password" name="passwordCreaterRepeat" required class="form-control" id="passwordCreaterRepeat" placeholder="password">
                               </div>
                             <button type="submit" id="register" class="btn btn-success">Click to create</button>
                           </form>
@@ -67,6 +61,4 @@
         </div>
     </div>
 
-    
-    
 <%- include('includes/footer.ejs') %> 

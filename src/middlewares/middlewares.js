@@ -12,3 +12,12 @@ exports.csurfMiddleware = (req, res, next) => {
     res.locals.csrfToken = req.csrfToken();
     next();
 }
+
+exports.auth = (req, res, next) =>{
+    if(!req.session.user){
+        req.flash('errors','somente usuários conta pode acessar!!');
+        return res.redirect('/login');
+    }else{
+        next();
+    }
+}

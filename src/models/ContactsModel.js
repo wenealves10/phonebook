@@ -44,6 +44,13 @@ class Contacts{
         if(!contacts) return contacts = [];
         return contacts;
     }
+
+    static async contactsId(id) {
+        if (typeof id !== 'string') return;
+        const contts = await ContactsModel.findById(id);
+        if (!contts) return;
+        return contts;
+    }
     
     async register(){
         this.validate();

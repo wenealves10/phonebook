@@ -45,10 +45,11 @@ class Contacts{
         return contacts;
     }
 
-    static async contactsId(id) {
+    static async contactsId(id, user) {
         if (typeof id !== 'string') return;
         const contts = await ContactsModel.findById(id);
         if (!contts) return;
+        if(user.email != contts.user_email) return;
         return contts;
     }
     
@@ -56,6 +57,15 @@ class Contacts{
         this.validate();
         if(this.errors.length > 0) return;
         this.contacts = await ContactsModel.create(this.body);
+    }
+
+    async update(id){
+        if (typeof id !== 'string') return;
+        this.validate();
+        if(this.errors.length > 0) return;
+        if(this.user.email != this.body.user_email) return;
+        this.contacts = await ContactsModel.findByIdAndUpdate(id,this.body,{new: true});
+        if (!this.contacts) return;
     }
 
     validate(){

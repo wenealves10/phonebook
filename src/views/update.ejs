@@ -12,20 +12,22 @@
                     Update your contact below
                 </p>
              <%- include('includes/messages.ejs') %> 
-             <form action="/contacts/register" method="POST" id="Contacts">
+             <form action="/contacts/<%= contacts._id %>" method="POST" id="Contacts">
                 <!-- csrf -->
                 <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                 <div class="form-group">
+                  <input type="hidden" name="_id" value="<%= contacts._id %>">
+                  <input type="hidden" name="user_email" value="<%= contacts.user_email %>">
                   <label for="name">Name</label>
-                  <input type="text" required name="name" class="form-control" id="name" placeholder="name of contacts">
+                  <input value="<%= contacts.name %>" type="text" required name="name" class="form-control" id="name" placeholder="name of contacts">
                 </div>
                 <div class="form-group">
                   <label for="email">E-mail</label>
-                  <input type="email" required name="email" class="form-control" id="email" placeholder="type your email">
+                  <input value="<%= contacts.email %>"  type="email" required name="email" class="form-control" id="email" placeholder="type your email">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="tel" name="phone" required class="form-control" id="phone" placeholder="type your phone">
+                    <input value="<%= contacts.phone %>"  type="tel" name="phone" required class="form-control" id="phone" placeholder="type your phone">
                   </div>
                 <button type="submit" id="register" class="btn btn-info w-100">Update</button>
               </form>

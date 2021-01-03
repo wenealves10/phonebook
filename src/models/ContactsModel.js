@@ -40,7 +40,8 @@ class Contacts{
     static async contacts(user){
         let contacts = [];
         if(!user) return  contacts;
-         contacts = await ContactsModel.find({user_email: user.email});
+         contacts = await ContactsModel.find({user_email: user.email})
+         .sort({date: -1});
         if(!contacts) return contacts = [];
         return contacts;
     }

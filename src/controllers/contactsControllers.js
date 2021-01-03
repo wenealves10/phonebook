@@ -31,7 +31,10 @@ exports.contacts = async (req, res) =>{
         if(!req.params.id) return res.render('ERROR');
         const contacts = await Contacts.contactsId(req.params.id,req.session.user);
         if(!contacts) return res.render('ERROR');
-        return res.render('update',{contacts});
+        req.flash('success','Sucesso ao cadastra contato!!!');
+        req.session.save(() =>{
+            return res.render('update',{contacts});
+        });
     }catch(err){
         console.log(err);
         return res.render('ERROR');
@@ -56,6 +59,21 @@ exports.update = async (req, res) => {
         });
     } catch (error) {
         console.log(error);
+        return res.render('ERROR');
+    }
+}
+
+exports.deletes = async (req, res) =>{
+    try{
+        if(!req.params.id) return res.render('ERROR');
+        const contacts = await Contacts.deletes(req.params.id,req.session.user);
+        if(!contacts) return res.render('ERROR');
+        req.flash('success','Contato apagado com sucesso!!!');
+        req.session.save(() =>{
+            return res.redirect('/');
+        });
+    }catch(err){
+        console.log(err);
         return res.render('ERROR');
     }
 }

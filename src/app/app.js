@@ -12,7 +12,7 @@ const {  csurfError, csurfMiddleware } = require('../middlewares/middlewares');
 // Mongoose
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.CONNECTDB,{ useNewUrlParser: true,  useUnifiedTopology: true}).then(() =>{
+mongoose.connect(process.env.CONNECTDB,{ useNewUrlParser: true,  useUnifiedTopology: true, useFindAndModify: false}).then(() =>{
     app.emit('db-started');
     console.log('Started the mongodb');
 }).catch((e) =>{

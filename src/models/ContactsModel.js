@@ -41,15 +41,8 @@ class Contacts{
         let contacts = [];
         if(!user) return  contacts;
          contacts = await ContactsModel.find({user_email: user.email});
-        if(!contacts.length > 0) {
-            this.errors.push('Nenhum Contatos Cadastro...');
-            return;
-        }
+        if(!contacts) return contacts = [];
         return contacts;
-    }
-
-    static errors(){
-        return this.errors;
     }
     
     async register(){

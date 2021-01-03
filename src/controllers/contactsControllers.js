@@ -25,3 +25,15 @@ exports.register = async (req, res) => {
     }
 
 }
+
+exports.contacts = async (req, res) =>{
+    try{
+        if(!req.params.id) return res.render('ERROR');
+        const contact = await Contacts.contactsId(req.params.id);
+        if(!contact) return res.render('ERROR');
+        return res.render('update',{contact});
+    }catch(err){
+        console.log(err);
+        return res.render('ERROR');
+    }
+}

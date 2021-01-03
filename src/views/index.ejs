@@ -11,7 +11,8 @@
                 <p class="lead text-center">
                     your phone book is below.
                 </p>
-             <%- include('includes/messages.ejs') %> 
+             <%- include('includes/messages.ejs') %>
+             <% if(contacts.length > 0){%> 
                 <div class="responsive-table">
                     <table class="table">
                         <thead>
@@ -24,10 +25,22 @@
                               </tr>
                         </thead>
                         <tbody>
-                           
+                           <% let i = 0 %> 
+                           <% contacts.forEach(contact =>{%>
+                            
+                            <tr>
+                                <td><%= i = i + 1%></td>
+                                <td><%= contact.name %></td>
+                                <td><%= contact.email %></td>
+                                <td><%= contact.phone %></td>
+                            </tr>
+                            <% }) %> 
                         </tbody>
                     </table>
                 </div>
+                <% }else{%> 
+                    <div class="display-4 text-center text-danger">Nenhum Contatos Ainda...</div>
+                <% } %> 
             </div>
             <div class="col-lg-2"></div>
         </div>

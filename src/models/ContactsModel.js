@@ -53,6 +53,15 @@ class Contacts{
         if(user.email != contts.user_email) return;
         return contts;
     }
+
+    static async deletes(id, user){
+        if (typeof id !== 'string') return;
+        const contt = await this.contactsId(id, user);
+        if (!contt) return;
+        if(user.email != contt.user_email) return;
+        const contact = await ContactsModel.findByIdAndDelete(id);
+        return contact;
+    }
     
     async register(){
         this.validate();

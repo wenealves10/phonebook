@@ -15,9 +15,9 @@ exports.register = async (req, res) => {
             });
             return;
         }
-        req.flash('success','Sucesso ao Cadastra!!!');
+        req.flash('success','Sucesso ao cadastra contato!!!');
         req.session.save(() =>{
-            return res.redirect('/contacts');
+            return res.redirect('/');
         });
     }catch(error){
         console.log(error);

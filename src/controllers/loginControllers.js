@@ -20,8 +20,9 @@ exports.register = async (req, res) => {
         return;
     }
     req.flash('success','Usuário cadastrado com sucesso!');
+    req.session.user = login.user;
     req.session.save(() =>{
-        return res.redirect('/login');
+        return res.redirect('/');
     });
    } catch (error) {
        console.log(error);

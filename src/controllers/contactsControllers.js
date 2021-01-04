@@ -31,7 +31,6 @@ exports.contacts = async (req, res) =>{
         if(!req.params.id) return res.render('ERROR');
         const contacts = await Contacts.contactsId(req.params.id,req.session.user);
         if(!contacts) return res.render('ERROR');
-        req.flash('success','Sucesso ao cadastra contato!!!');
         req.session.save(() =>{
             return res.render('update',{contacts});
         });

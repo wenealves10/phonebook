@@ -1,0 +1,11 @@
+version: '3'
+
+services: 
+  phonebook:
+    image: wns1601/phonebook:1.0
+    container_name: phonebook
+    volumes:
+      - ./.env:/opt/app/.env
+    ports:
+      - 3000:3000
+    restart: always

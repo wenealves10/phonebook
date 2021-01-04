@@ -21,6 +21,7 @@ exports.register = async (req, res) => {
     }
     req.flash('success','Usuário cadastrado com sucesso!');
     req.session.user = login.user;
+    req.session.email = login.user.email;
     req.session.save(() =>{
         return res.redirect('/');
     });
@@ -45,6 +46,7 @@ exports.account = async (req, res) =>{
       
         req.flash('success','Usuário Logado com sucesso!!!');
         req.session.user = login.user;
+        req.session.email = login.user.email;
         req.session.save(() =>{
             return res.redirect('/');
         });

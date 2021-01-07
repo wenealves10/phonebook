@@ -31,6 +31,9 @@ const configs = {
     host: process.env.HOST || "127.0.0.1"
 }
 
+// files statics
+app.use(express.static(path.resolve(__dirname,'..','..','public')));
+
 // Helmet
 app.use(helmet());
 // Config Server
@@ -38,7 +41,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
 // Config Views
-app.use(express.static(path.resolve(__dirname,'..','..','public')));
 app.set('views',path.resolve(__dirname,'../','views'));
 app.set('view engine','ejs');
 

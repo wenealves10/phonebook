@@ -1,6 +1,6 @@
-version: '3'
+version: "3"
 
-services: 
+services:
   phonebook:
     image: wns1601/phonebook:3.0
     container_name: phonebook
